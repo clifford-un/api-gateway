@@ -8,5 +8,11 @@ services:
       CHATS_URL: '192.168.99.102'
       CHATS_PORT: '8000'
       CHATS_ENTRY: 'chats'
+      USERS_URL: '192.168.99.110'
+      USERS_PORT: '3000'
+      USERS_ENTRY: 'users'
+      TESTS_ENTRY: 'tests'
+
+      
     ports:
       - '5500:5500'

@@ -7,22 +7,33 @@ import { mergeSchemas } from './utilities';
 import {
 	chatsMutations,
 	chatsQueries,
-	chatsTypeDef
+	chatsTypeDef,
 } from './chat-ms/typeDefs';
 
+import {
+	usersMutations,
+	usersQueries,
+	usersTypeDef,
+} from './users-ms/typeDefs';
+
+
 import chatsResolvers from './chat-ms/resolvers';
+import usersResolvers from './users-ms/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		chatsTypeDef
+		chatsTypeDef,
+		usersTypeDef
 	],
 	[
-		chatsQueries
+		chatsQueries,
+		usersQueries
 	],
 	[
-		chatsMutations
+		chatsMutations,
+		usersMutations
 	]
 );
 
@@ -31,6 +42,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		chatsResolvers
+		chatsResolvers,
+		usersResolvers
 	)
 });
