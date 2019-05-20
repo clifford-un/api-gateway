@@ -7,7 +7,8 @@ type AuthTest {
     message: String!
 }
 type TokenOutput {
-    error: String!
+    message: String
+    error: String
 }
 input AuthInput {
     userName: String!
