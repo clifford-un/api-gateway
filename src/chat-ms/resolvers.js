@@ -5,10 +5,10 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allChats: (_) =>
+		testChats: (_) =>
 			getRequest(URL, ''),
-		chatById: (_, { id }) =>
-			generalRequest(`${URL}/${id}/`, 'GET'),
+		chatById: (_, { chat_room_id }) =>
+			generalRequest(`${URL}/${chat_room_id}/`, 'GET'),
 	},
 	Mutation: {
 		createChat: (_, { chat }) =>

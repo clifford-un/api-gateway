@@ -8,6 +8,9 @@ type Chat {
     chat_date_stamp: String!
 
 }
+type ChatTest{
+    message: String!
+}
 input ChatInput {
     chat_user_origin: Int!
     chat_room_id: Int!
@@ -15,8 +18,8 @@ input ChatInput {
 }`;
 
 export const chatsQueries = `
-    allChats: [Chat]!
-    chatById(id: String!): Chat!
+    testChats: ChatTest!
+    chatById(chat_room_id: Int!): [Chat!]
 `;
 
 export const chatsMutations = `
