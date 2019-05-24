@@ -15,6 +15,7 @@ services:
       USERS_PORT: '3000'
       USERS_ENTRY: 'users'
       TESTS_ENTRY: 'tests'
+      FRIENDS_ENTRY: 'friends'
 
       
     ports:
