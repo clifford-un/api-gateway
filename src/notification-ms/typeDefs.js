@@ -1,26 +1,35 @@
-export const authTypeDef = `
-type Token {
-    jwt: String
-    error: String
-}
-type AuthTest {
+export const notifTypeDef = `
+type Notif {
+    id: String!
     message: String!
+    topic: String!
+    device: String
+    user: String!
 }
-type TokenOutput {
-    message: String
-    error: String
+type UserDevice {
+    user: String!
+    device: String!
 }
-input AuthInput {
-    userName: String!
-    password: String!
+
+input UserDeviceInput {
+    user: String!
+    device: String!
+}
+
+input NotifInput{
+    message: String!
+    topic: String!
+    device: String
+    user: String!
 }
 `;
 
-export const authQueries = `
-    authTest: AuthTest!
-    login(token: String!, id: String!): TokenOutput
+export const notifQueries = `
+    notifById(id: String!): Notif!
+    userDeviceById(id: String!): UserDevice!
 `;
 
-export const authMutations = `
-    createToken(user: AuthInput!): Token!
+export const notifMutations = `
+    sendNotif(notif: NotifInput!): Notif!
+    setUserDevice(user: UserDeviceInput!): UserDevice!
 `;

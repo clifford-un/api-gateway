@@ -12,6 +12,10 @@ services:
       USERS_PORT: '3000'
       USERS_ENTRY: 'users'
       TESTS_ENTRY: 'tests'
+      NOTIF_URL: '192.168.99.101'
+      NOTIF_PORT: '9000'
+      NOTIF_ENTRY: 'notification'
+      USDEV_ENTRY: 'user_device'
 
       
     ports:
