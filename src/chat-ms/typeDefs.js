@@ -2,7 +2,7 @@ export const chatsTypeDef = `
 type Chat {
     id: String!
     chat_user_origin: Int!
-    chat_room_id: Int!
+    chat_room_id: String!
     chat_text: String!
     chat_hidden: Boolean!
     chat_date_stamp: String!
@@ -13,13 +13,13 @@ type ChatTest{
 }
 input ChatInput {
     chat_user_origin: Int!
-    chat_room_id: Int!
+    chat_room_id: String!
     chat_text: String!
 }`;
 
 export const chatsQueries = `
     testChats: ChatTest!
-    chatById(chat_room_id: Int!): [Chat!]
+    chatById(chat_room_id: String!): [Chat!]
 `;
 
 export const chatsMutations = `
