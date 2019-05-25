@@ -5,6 +5,7 @@ type Protected_User {
     id: Int!
     user_name: String!
     e_mail: String!
+    friends: [User!]
 }
 type User{
     user: Protected_User!
