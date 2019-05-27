@@ -5,7 +5,7 @@ type Protected_User {
     id: Int!
     user_name: String!
     e_mail: String!
-    friends: [User!]
+    friends: [[Protected_User!]]
 }
 type User{
     user: Protected_User!
@@ -13,7 +13,7 @@ type User{
 type Friend {
     user_id1: Int!
     user_id2: Int!
-    
+   
 }
 type Test {
     id: Int!
