@@ -18,8 +18,8 @@ const resolvers = {
 			getRequest(`${URL}/users/${room_id}/`)
 	},
 	Mutation: {
-		createChatroom: (_, {chatroom}) =>
-			generalRequest(`${URL}/chatroom/`, 'POST', chatroom),
+		createChatroom: (_, {name}) =>
+			generalRequest(`${URL}/chatroom/`, 'POST', name),
 
 		addUser: (_, {room_id, user_id}) =>
 			generalRequest(`${URL}/user/`, 'POST', {room_id, user_id}),
