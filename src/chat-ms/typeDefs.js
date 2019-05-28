@@ -2,21 +2,24 @@ export const chatsTypeDef = `
 type Chat {
     id: String!
     chat_user_origin: Int!
-    chat_room_id: Int!
+    chat_room_id: String!
     chat_text: String!
     chat_hidden: Boolean!
     chat_date_stamp: String!
 
 }
+type ChatTest{
+    message: String!
+}
 input ChatInput {
     chat_user_origin: Int!
-    chat_room_id: Int!
+    chat_room_id: String!
     chat_text: String!
 }`;
 
 export const chatsQueries = `
-    allChats: [Chat]!
-    chatById(id: String!): Chat!
+    testChats: ChatTest!
+    chatById(chat_room_id: String!): [Chat!]
 `;
 
 export const chatsMutations = `

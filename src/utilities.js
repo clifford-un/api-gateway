@@ -5,10 +5,32 @@ import { formatError } from 'graphql';
  * Creates a request following the given parameters
  * @param {string} url
  * @param {string} method
+ * @param {string} token
  * @param {object} [body]
+ * @param {object} [auth]
  * @param {boolean} [fullResponse]
  * @return {Promise.<*>} - promise with the error or the response object
  */
+export async function generalRequest2(url, method, body, token, fullResponse) {
+	const parameters = {
+		method,
+		uri: encodeURI(url),
+		body,
+		auth: {'bearer':token},
+		json: true,
+		resolveWithFullResponse: fullResponse
+	};
+	if (process.env.SHOW_URLS) {
+		// eslint-disable-next-line
+		console.log(url);
+	}
+	try {
+		return await request(parameters);
+	} catch (err) {
+		return err;
+	}
+}
+
 export async function generalRequest(url, method, body, fullResponse) {
 	const parameters = {
 		method,
@@ -21,7 +43,6 @@ export async function generalRequest(url, method, body, fullResponse) {
 		// eslint-disable-next-line
 		console.log(url);
 	}
-
 	try {
 		return await request(parameters);
 	} catch (err) {
@@ -36,7 +57,8 @@ export async function generalRequest(url, method, body, fullResponse) {
  * @return {string} - url with the added parameters
  */
 export function addParams(url, parameters) {
-	let queryUrl = `${url}?`;
+	//let queryUrl = `${url}?`;
+	let queryUrl = `${url}`;
 	for (let param in parameters) {
 		// check object properties
 		if (
@@ -57,11 +79,12 @@ export function addParams(url, parameters) {
  * Generates a GET request with a list of query params
  * @param {string} url
  * @param {string} path
- * @param {object} parameters - key values to add to the url path
+ * @param {object} parameters 
  * @return {Promise.<*>}
  */
 export function getRequest(url, path, parameters) {
-	const queryUrl = addParams(`${url}/${path}`, parameters);
+	//const queryUrl = addParams(`${url}/${path}`, parameters);
+	const queryUrl = addParams(`${url}`, parameters);
 	return generalRequest(queryUrl, 'GET');
 }
 

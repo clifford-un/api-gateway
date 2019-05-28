@@ -22,28 +22,37 @@ import {
 	notifTypeDef,
 } from './notification-ms/typeDefs';
 
+import {
+	authMutations,
+	authQueries,
+	authTypeDef
+} from './auth-ms/typeDefs';
+
 
 import chatsResolvers from './chat-ms/resolvers';
 import usersResolvers from './users-ms/resolvers';
 import notifResolvers from './notification-ms/resolvers';
+import authResolvers from './auth-ms/resolvers';
 
-// merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		chatsTypeDef,
 		usersTypeDef,
-		notifTypeDef
+		notifTypeDef,
+		authTypeDef
 	],
 	[
 		chatsQueries,
 		usersQueries,
-		notifQueries
+		notifQueries,
+		authQueries
 	],
 	[
 		chatsMutations,
 		usersMutations,
-		notifMutations
+		notifMutations,
+		authMutations
 	]
 );
 
@@ -54,6 +63,7 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		chatsResolvers,
 		usersResolvers,
-		notifResolvers
+		notifResolvers,
+		authResolvers
 	)
 });

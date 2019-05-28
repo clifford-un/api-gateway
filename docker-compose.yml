@@ -5,10 +5,10 @@ services:
     environment:
       PORT: '5500'
       SHOW_URLS: 'true'
-      CHATS_URL: '192.168.99.102'
+      CHATS_URL: '192.168.99.101'
       CHATS_PORT: '8000'
       CHATS_ENTRY: 'chats'
-      USERS_URL: '192.168.99.113'
+      USERS_URL: '192.168.99.101'
       USERS_PORT: '3000'
       USERS_ENTRY: 'users'
       TESTS_ENTRY: 'tests'
