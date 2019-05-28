@@ -28,11 +28,17 @@ import {
 	authTypeDef
 } from './auth-ms/typeDefs';
 
+import {
+	chatroomQueries,
+	chatroomMutations,
+	chatroomTypeDef
+} from './chatroom-ms/typeDefs';
 
 import chatsResolvers from './chat-ms/resolvers';
 import usersResolvers from './users-ms/resolvers';
 import notifResolvers from './notification-ms/resolvers';
 import authResolvers from './auth-ms/resolvers';
+import chatroomResolvers from './chatroom-ms/resolvers';
 
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -52,7 +58,13 @@ const mergedTypeDefs = mergeSchemas(
 		chatsMutations,
 		usersMutations,
 		notifMutations,
-		authMutations
+		authMutations,
+		notifMutations
+	],
+	[
+		chatroomQueries,
+		chatroomMutations,
+		chatroomTypeDef
 	]
 );
 
@@ -64,6 +76,7 @@ export default makeExecutableSchema({
 		chatsResolvers,
 		usersResolvers,
 		notifResolvers,
-		authResolvers
+		authResolvers,
+		chatroomResolvers
 	)
 });

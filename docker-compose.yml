@@ -17,6 +17,8 @@ services:
       NOTIF_PORT: '9000'
       NOTIF_ENTRY: 'notification'
       USDEV_ENTRY: 'user_device'
+      CHATROOM_URL: '192.168.99.101'
+      CHATROOM_PORT: '4000'
 
       
     ports:
