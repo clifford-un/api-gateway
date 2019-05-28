@@ -1,4 +1,4 @@
-export const notifTypeDef = `
+export const chatroomTypeDef = `
 type Chatroom {
     id: String!
     name: String!
@@ -6,14 +6,14 @@ type Chatroom {
 }
 `;
 
-export const notifQueries = `
+export const chatroomQueries = `
     test(): Int
     getById(room_id: String!): Chatroom!
     getChatroomsByUser(user_id: Int!): [Chatroom!]
     getUsersFromChatroom(room_id: String!): [Int!]
 `;
 
-export const notifMutations = `
+export const chatroomMutations = `
     createChatroom(room: Chatroom!) : Chatroom!
     addUser(room_id: String!, user_id: Int!): Chatroom!
     deleteChatroom(room_id: String!): Int
