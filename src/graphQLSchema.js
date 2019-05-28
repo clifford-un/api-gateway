@@ -46,25 +46,23 @@ const mergedTypeDefs = mergeSchemas(
 		chatsTypeDef,
 		usersTypeDef,
 		notifTypeDef,
-		authTypeDef
+		authTypeDef,
+		chatroomTypeDef
 	],
 	[
 		chatsQueries,
 		usersQueries,
 		notifQueries,
-		authQueries
+		authQueries,
+		chatroomQueries
 	],
 	[
 		chatsMutations,
 		usersMutations,
 		notifMutations,
 		authMutations,
-		notifMutations
-	],
-	[
-		chatroomQueries,
-		chatroomMutations,
-		chatroomTypeDef
+		notifMutations,
+		chatroomMutations
 	]
 );
 
