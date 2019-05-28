@@ -61,7 +61,7 @@ typings/
 .next
 
 #lib
-.lib/
+lib/
 
 #package
 package-lock.json
