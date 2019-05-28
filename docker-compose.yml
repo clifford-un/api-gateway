@@ -8,13 +8,17 @@ services:
       CHATS_URL: '192.168.99.101'
       CHATS_PORT: '8000'
       CHATS_ENTRY: 'chats'
-      AUTH_URL: '192.168.99.101'
-      AUTH_PORT: '3200'
-      AUTH_ENTRY: 'login'
       USERS_URL: '192.168.99.101'
       USERS_PORT: '3000'
       USERS_ENTRY: 'users'
       TESTS_ENTRY: 'tests'
+      FRIENDS_ENTRY: 'friends'
+      NOTIF_URL: '192.168.99.101'
+      NOTIF_PORT: '9000'
+      NOTIF_ENTRY: 'notification'
+      USDEV_ENTRY: 'user_device'
+      CHATROOM_URL: '192.168.99.101'
+      CHATROOM_PORT: '4000'
 
       
     ports:

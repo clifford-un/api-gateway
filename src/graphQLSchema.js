@@ -17,33 +17,54 @@ import {
 } from './users-ms/typeDefs';
 
 import {
+	notifQueries,
+	notifMutations,
+	notifTypeDef,
+} from './notification-ms/typeDefs';
+
+import {
 	authMutations,
 	authQueries,
 	authTypeDef
 } from './auth-ms/typeDefs';
 
+import {
+	chatroomQueries,
+	chatroomMutations,
+	chatroomTypeDef
+} from './chatroom-ms/typeDefs';
 
 import chatsResolvers from './chat-ms/resolvers';
 import usersResolvers from './users-ms/resolvers';
+import notifResolvers from './notification-ms/resolvers';
 import authResolvers from './auth-ms/resolvers';
+import chatroomResolvers from './chatroom-ms/resolvers';
 
-// merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		chatsTypeDef,
 		usersTypeDef,
+		notifTypeDef,
 		authTypeDef
 	],
 	[
 		chatsQueries,
 		usersQueries,
+		notifQueries,
 		authQueries
 	],
 	[
 		chatsMutations,
 		usersMutations,
-		authMutations
+		notifMutations,
+		authMutations,
+		notifMutations
+	],
+	[
+		chatroomQueries,
+		chatroomMutations,
+		chatroomTypeDef
 	]
 );
 
@@ -54,6 +75,8 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		chatsResolvers,
 		usersResolvers,
-		authResolvers
+		notifResolvers,
+		authResolvers,
+		chatroomResolvers
 	)
 });
