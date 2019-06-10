@@ -3,26 +3,26 @@ services:
   academy-api:
     build: .
     environment:
-      PORT: '5500'
+      PORT: '80'
       SHOW_URLS: 'true'
-      CHATS_URL: '192.168.99.101'
-      CHATS_PORT: '8000'
+      CHATS_URL: '10.128.0.7'
+      CHATS_PORT: '80'
       CHATS_ENTRY: 'chats'
-      AUTH_URL: '192.168.99.101'
-      AUTH_PORT: '3200'
+      AUTH_URL: '10.150.0.5'
+      AUTH_PORT: '80'
       AUTH_ENTRY: 'login'
-      USERS_URL: '192.168.99.101'
-      USERS_PORT: '3000'
+      USERS_URL: '10.158.0.2'
+      USERS_PORT: '80'
       USERS_ENTRY: 'users'
       TESTS_ENTRY: 'tests'
       FRIENDS_ENTRY: 'friends'
-      NOTIF_URL: '192.168.99.101'
-      NOTIF_PORT: '9000'
+      NOTIF_URL: '10.128.0.6'
+      NOTIF_PORT: '80'
       NOTIF_ENTRY: 'notification'
       USDEV_ENTRY: 'user_device'
-      CHATROOM_URL: '192.168.99.101'
-      CHATROOM_PORT: '4000'
+      CHATROOM_URL: '10.128.0.4'
+      CHATROOM_PORT: '80'
 
       
     ports:
-      - '5500:5500'
+      - '80:80'

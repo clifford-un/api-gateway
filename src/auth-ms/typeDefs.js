@@ -1,6 +1,8 @@
 export const authTypeDef = `
 type Token {
-    jwt: String
+    jwt: String,
+    user_id: String,
+    user_name: String,
     error: String
 }
 type AuthTest {
