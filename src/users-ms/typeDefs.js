@@ -66,7 +66,7 @@ export const usersQueries = `
 
 export const usersMutations = `
     createTest(test: TestInput!): Test!
-    createUser(user: UserInput!): User!
+    createUser(user: UserInput!): Protected_User
     createFriend(friend: FriendInput!): Friend!
     deleteUser(id: Int!): Int
     createFriendRequest(request: RequestInput!): Request!
