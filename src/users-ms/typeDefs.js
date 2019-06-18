@@ -59,7 +59,7 @@ export const usersQueries = `
     allUsers: [User]!
     allTests: [Test]!
     allFriends: [Friend]!
-    userById(id: Int!): User!
+    userById(id: Int!, token: String!, username: String!): User
     friendsById(id: Int!): [User]!
     requestsById(id: Int!): [[[Protected_User]]]
 `;
