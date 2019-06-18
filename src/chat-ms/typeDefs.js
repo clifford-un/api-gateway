@@ -23,6 +23,6 @@ export const chatsQueries = `
 `;
 
 export const chatsMutations = `
-    createChat(chat: ChatInput!,  token, username): Chat!
-    deleteChat(id: String!,  token, username): String
+    createChat(chat: ChatInput!,  token: String!, username: String!): Chat!
+    deleteChat(id: String!,  token: String!, username: String!): String
 `;
