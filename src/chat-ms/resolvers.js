@@ -7,14 +7,14 @@ const resolvers = {
 	Query: {
 		testChats: (_) =>
 			getRequest(URL, ''),
-		chatById: (_, { chat_room_id }) =>
-			generalRequest(`${URL}/${chat_room_id}/`, 'GET'),
+		chatById: (_, { chat_room_id, token, username }) =>
+			getRequestProtected(`${URL}/${chat_room_id}/`, 'GET', token, username),
 	},
 	Mutation: {
-		createChat: (_, { chat }) =>
-			generalRequest(`${URL}/`, 'POST', chat),
-		deleteChat: (_, { id }) =>
-			generalRequest(`${URL}/${id}/`, 'DELETE')
+		createChat: (_, { chat, token, username }) =>
+			generalRequest(`${URL}/`, 'POST', chat, token, username),
+		deleteChat: (_, { id,  token, username }) =>
+			generalRequest(`${URL}/${id}/`, 'DELETE',  token, username)
 	}
 };
 
