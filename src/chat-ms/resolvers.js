@@ -1,4 +1,4 @@
-import { generalRequest, getRequest, getRequestProtected } from '../utilities';
+import { generalRequest, getRequest, getRequestProtected, generalRequestProtected } from '../utilities';
 import { url, port, entryPoint } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
@@ -12,9 +12,9 @@ const resolvers = {
 	},
 	Mutation: {
 		createChat: (_, { chat, token, username }) =>
-			generalRequest(`${URL}/`, 'POST', chat, token, username),
+			generalRequestProtected(`${URL}/`, 'POST', token, username, chat ),
 		deleteChat: (_, { id,  token, username }) =>
-			generalRequest(`${URL}/d/${id}/`, 'DELETE',  token, username)
+			generalRequestProtected(`${URL}/d/${id}/`, 'DELETE',  token, username)
 	}
 };
 
