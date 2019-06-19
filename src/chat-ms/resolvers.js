@@ -14,7 +14,7 @@ const resolvers = {
 		createChat: (_, { chat, token, username }) =>
 			generalRequestProtected(`${URL}/`, 'POST', token, username, chat ),
 		deleteChat: (_, { id,  token, username }) =>
-			generalRequestProtected(`${URL}/d/${id}/`, 'DELETE',  token, username)
+			generalRequestProtected(`${URL}/d/${id}/`, 'DELETE', token, username)
 	}
 };
 
