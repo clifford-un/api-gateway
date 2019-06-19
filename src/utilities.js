@@ -1,5 +1,8 @@
 import request from 'request-promise-native';
 import { formatError } from 'graphql';
+import { url, port } from './auth-ms/server';
+
+const AUTH_URL_LOGIN = `http://${url}:${port}/login`;
 
 /**
  * Creates a request following the given parameters
@@ -86,6 +89,16 @@ export function getRequest(url, path, parameters) {
 	//const queryUrl = addParams(`${url}/${path}`, parameters);
 	const queryUrl = addParams(`${url}`, parameters);
 	return generalRequest(queryUrl, 'GET');
+}
+
+export async function getRequestProtected(url, path, token, username, parameters) {
+	const auth_ans = await generalRequest2(`${AUTH_URL_LOGIN}/${username}`, 'GET', undefined, token);
+	if(auth_ans.message === 'Tienes acceso'){
+		const queryUrl = addParams(`${url}`, parameters);
+		return generalRequest(queryUrl, 'GET');
+	}else{
+		throw formatErr('401!');
+	}
 }
 
 /**

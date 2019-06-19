@@ -19,10 +19,10 @@ input ChatInput {
 
 export const chatsQueries = `
     testChats: ChatTest!
-    chatById(chat_room_id: String!): [Chat!]
+    chatById(chat_room_id: String!, token: String!, username: String!): [Chat!]
 `;
 
 export const chatsMutations = `
-    createChat(chat: ChatInput!): Chat!
-    deleteChat(id: String!): String
+    createChat(chat: ChatInput!,  token: String!, username: String!): Chat!
+    deleteChat(id: String!,  token: String!, username: String!): String
 `;

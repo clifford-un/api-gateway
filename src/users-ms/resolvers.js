@@ -1,4 +1,4 @@
-import { generalRequest, getRequest } from '../utilities';
+import { generalRequest, getRequest, getRequestProtected } from '../utilities';
 import { url, port, entryPoint_user,entryPoint_test,entryPoint_friend } from './server';
 
 const URL_USER = `http://${url}:${port}/${entryPoint_user}`;
@@ -19,8 +19,8 @@ const resolvers = {
 			getRequest(URL_TEST, ''),	
 		allFriends: (_) =>
 			getRequest(URL_FRIEND, ''),
-		userById: (_, { id }) =>
-			 generalRequest(`${URL_USER}/${id}/`, 'GET'),
+		userById: (_, { id, token, username }) =>
+			getRequestProtected(`${URL_USER}/${id}/`, '', token, username),
 		friendsById: (_, { id }) =>
 			 generalRequest(`${URL_GET_FRIENDS}id=${id}`, 'GET'),
 		requestsById: (_, { id }) =>
