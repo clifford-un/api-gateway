@@ -14,7 +14,7 @@ const resolvers = {
 		createChat: (_, { chat, token, username }) =>
 			generalRequest(`${URL}/`, 'POST', chat, token, username),
 		deleteChat: (_, { id,  token, username }) =>
-			generalRequest(`${URL}/${id}/`, 'DELETE',  token, username)
+			generalRequest(`${URL}/d/${id}/`, 'DELETE',  token, username)
 	}
 };
 
