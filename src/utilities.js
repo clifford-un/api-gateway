@@ -104,8 +104,7 @@ export async function getRequestProtected(url, path, token, username, parameters
 export async function generalRequestProtected(url, path, token, username, parameters) {
 	const auth_ans = await generalRequest2(`${AUTH_URL_LOGIN}/${username}`, 'GET', undefined, token);
 	if(auth_ans.message === 'Tienes acceso'){
-		const queryUrl = addParams(`${url}`, parameters);
-		return generalRequest(queryUrl, path,parameters);
+		return generalRequest(url, path,parameters);
 	}else{
 		throw formatErr('401!');
 	}
