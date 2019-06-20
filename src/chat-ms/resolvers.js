@@ -12,7 +12,7 @@ const resolvers = {
 	},
 	Mutation: {
 		createChat: (_, { chat, token, username }) =>
-			generalRequest(`${URL}/`, 'POST', chat ),
+			generalRequestProtected(`${URL}/`, 'POST', chat ),
 		deleteChat: (_, { id,  token, username }) =>
 			generalRequestProtected(`${URL}/d/${id}/`, 'DELETE', token, username)
 	}
