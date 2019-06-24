@@ -101,6 +101,15 @@ export async function getRequestProtected(url, path, token, username, parameters
 	}
 }
 
+export async function generalRequestProtected(url, path, token, username, parameters) {
+	const auth_ans = await generalRequest2(`${AUTH_URL_LOGIN}/${username}`, 'GET', undefined, token);
+	if(auth_ans.message === 'Tienes acceso'){
+		return generalRequest(url, path,parameters);
+	}else{
+		throw formatErr('401!');
+	}
+}
+
 /**
  * Merge the schemas in order to avoid conflicts
  * @param {Array<string>} typeDefs
