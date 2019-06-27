@@ -6,7 +6,7 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 const resolvers = {
 	Query: {
 		getTweet: (_, { email }) =>
-			getRequest(`${URL}/${email}/`, 'GET'),
+			getRequest(`${URL}/${email}`, 'GET'),
 	}
 
 };
