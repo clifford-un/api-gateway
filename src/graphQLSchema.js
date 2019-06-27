@@ -34,11 +34,17 @@ import {
 	chatroomTypeDef
 } from './chatroom-ms/typeDefs';
 
+import {
+	interfaceQueries,
+	interfaceTypeDef
+} from './kwii-interface/typeDefs';
+
 import chatsResolvers from './chat-ms/resolvers';
 import usersResolvers from './users-ms/resolvers';
 import notifResolvers from './notification-ms/resolvers';
 import authResolvers from './auth-ms/resolvers';
 import chatroomResolvers from './chatroom-ms/resolvers';
+import interfaceResolvers from './kwii-interface/resolvers';
 
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -47,14 +53,16 @@ const mergedTypeDefs = mergeSchemas(
 		usersTypeDef,
 		notifTypeDef,
 		authTypeDef,
-		chatroomTypeDef
+		chatroomTypeDef,
+		interfaceTypeDef
 	],
 	[
 		chatsQueries,
 		usersQueries,
 		notifQueries,
 		authQueries,
-		chatroomQueries
+		chatroomQueries,
+		interfaceQueries
 	],
 	[
 		chatsMutations,
@@ -75,6 +83,7 @@ export default makeExecutableSchema({
 		usersResolvers,
 		notifResolvers,
 		authResolvers,
-		chatroomResolvers
+		chatroomResolvers,
+		interfaceResolvers
 	)
 });
