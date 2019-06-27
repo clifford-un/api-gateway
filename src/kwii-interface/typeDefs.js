@@ -7,5 +7,5 @@ type Tweet {
 
 export const interfaceQueries = `
     testInterface: String!
-    getTweet(email: String!): String!
+    getTweet(email: String!): [Tweet!]
 `;
