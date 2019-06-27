@@ -6,5 +6,6 @@ type Tweet {
 }`;
 
 export const interfaceQueries = `
+    testInterface: String!
     getTweet(email: String!): [Tweet!]
 `;
